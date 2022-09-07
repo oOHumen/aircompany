@@ -1,22 +1,14 @@
-const Plane = require('./Plane');
+const BasicPlane = require('./BasicPlane');
 
-class PassengerPlane extends Plane {
-
-    //=================CONSTRUCTORS=================
-
+class PassengerPlane extends BasicPlane {
     constructor(model, maxSpeed, maxFlightDistance, maxLoadCapacity, passengersCapacity) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
-        this._passengersCapacity = passengersCapacity;
+        this.passengersCapacity = passengersCapacity;
     }
 
-    //=================METHODS=================
     getPassengersCapacity() {
-        return this._passengersCapacity;
+        return this.passengersCapacity;
     }
-
-    // set passengersCapacity(value) {
-    //     this._passengersCapacity = value;
-    // }
 }
 
 module.exports = PassengerPlane;
