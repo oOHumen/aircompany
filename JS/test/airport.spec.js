@@ -73,9 +73,8 @@ describe('Airport application test', () => {
         for (let militaryPlane of bomberMilitaryPlanes) {
             if (militaryPlane.getMilitaryType() === militaryType.bomber) {
                 flag = true;
-            } else {
-                assert.fail("Test failed!");
             }
+            assert.isFalse(flag);
         }
     })
 
