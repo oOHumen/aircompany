@@ -1,13 +1,12 @@
 const assert = require('chai').assert;
 
-const BasicPlane = require('../Planes/BasicPlane');
 const MilitaryPlane = require('../Planes/MilitaryPlane');
 const PassengerPlane = require('../Planes/PassengerPlane');
 const Airport = require('../Airport');
 const militaryType = require('../models/militaryType');
 const ExperimentalPlane = require('../Planes/ExperimentalPlane');
 const experimentalTypes = require('../models/experimentalTypes');
-const classificationLevel = require('../models/classificationLevel');
+const classificationTypes = require('../models/classificationuTypes');
 
 describe('Airport application test', () => {
 
@@ -26,8 +25,8 @@ describe('Airport application test', () => {
         new MilitaryPlane('F-15', 1500, 12000, 10000, militaryType.fighter),
         new MilitaryPlane('F-22', 1550, 13000, 11000, militaryType.fighter),
         new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryType.transport),
-        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.highAltitude, classificationLevel.secret),
-        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationLevel.topSecret)
+        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.highAltitude, classificationTypes.secret),
+        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationTypes.topSecret)
     ];
     let planeWithMaxPassengerCapacity = new PassengerPlane('Boeing-747', 980, 16100, 70500, 242);
 
@@ -78,12 +77,12 @@ describe('Airport application test', () => {
         }
     })
 
-    it('should check that experimentsl planes has classification level higher than unclassified', () => {
+    it('should check that experimentsl planes has classification type higher than unclassified', () => {
         let airport = new Airport(planes);
         let experimentalPlanes = airport.getExperimentalPlanes();
         let hasUnclassifiedPlanes = false;
         for (let experimentalPlane of experimentalPlanes) {
-            if (experimentalPlane.classificationLevel === classificationLevel.unclassified) {
+            if (experimentalPlane.classificationTypes === classificationTypes.unclassified) {
                 hasUnclassifiedPlanes = true;
 
             }

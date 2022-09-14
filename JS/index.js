@@ -1,11 +1,10 @@
-const BasicPlane = require('./Planes/BasicPlane');
 const MilitaryPlane = require('./Planes/MilitaryPlane');
 const PassengerPlane = require('./Planes/PassengerPlane');
 const Airport = require('./Airport');
 const militaryType = require('./models/militaryType');
 const ExperimentalPlane = require('./Planes/ExperimentalPlane');
 const experimentalTypes = require('./models/experimentalTypes');
-const classificationLevel = require('./models/classificationLevel');
+const classificationTypes = require('./models/classificationuTypes');
 
 (function run() {
 
@@ -24,8 +23,8 @@ const classificationLevel = require('./models/classificationLevel');
         new MilitaryPlane('F-15', 1500, 12000, 10000, militaryType.bomber),
         new MilitaryPlane('F-22', 1550, 13000, 11000, militaryType.bomber),
         new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryType.transport),
-        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.highAltitude, classificationLevel.secret),
-        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationLevel.topSecret)
+        new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.highAltitude, classificationTypes.secret),
+        new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationTypes.topSecret)
     ];
 
     let airport = new Airport(planes);
