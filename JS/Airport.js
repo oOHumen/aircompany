@@ -1,6 +1,6 @@
 const PassengerPlane = require('./Planes/PassengerPlane');
 const MilitaryPlane = require('./Planes/MilitaryPlane');
-const militaryType = require('./models/militaryType');
+const militaryTypes = require('./models/militaryTypes');
 const ExperimentalPlane = require('./Planes/ExperimentalPlane');
 
 class Airport {
@@ -44,7 +44,7 @@ class Airport {
         let transportMilitaryPlanesList = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].getMilitaryType() === militaryType.transport) {
+            if (militaryPlanes[i].getMilitaryType() === militaryTypes.transport) {
                 transportMilitaryPlanesList.push(militaryPlanes[i]);
             }
         }
@@ -55,7 +55,7 @@ class Airport {
         let bomberMilitaryPlanesList = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].getMilitaryType() === militaryType.bomber) {
+            if (militaryPlanes[i].getMilitaryType() === militaryTypes.bomber) {
                 bomberMilitaryPlanesList.push(militaryPlanes[i]);
             }
         }
@@ -77,7 +77,7 @@ class Airport {
         return this;
     }
 
-    e //Sorts by max speed
+    //Sorts by max speed
     // @return Airport
 
     sortByMaxSpeed() {

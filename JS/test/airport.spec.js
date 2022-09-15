@@ -3,10 +3,10 @@ const assert = require('chai').assert;
 const MilitaryPlane = require('../Planes/MilitaryPlane');
 const PassengerPlane = require('../Planes/PassengerPlane');
 const Airport = require('../Airport');
-const militaryType = require('../models/militaryType');
+const militaryTypes = require('../models/militaryTypes');
 const ExperimentalPlane = require('../Planes/ExperimentalPlane');
 const experimentalTypes = require('../models/experimentalTypes');
-const classificationTypes = require('../models/classificationuTypes');
+const classificationTypes = require('../models/classificationTypes');
 
 describe('Airport application test', () => {
 
@@ -19,12 +19,12 @@ describe('Airport application test', () => {
         new PassengerPlane('Embraer 190', 870, 8100, 30800, 64),
         new PassengerPlane('Sukhoi Superjet 100', 870, 11500, 50500, 140),
         new PassengerPlane('Bombardier CS300', 920, 11000, 60700, 196),
-        new MilitaryPlane('B-1B Lancer', 1050, 21000, 80000, militaryType.bomber),
-        new MilitaryPlane('B-2 Spirit', 1030, 22000, 70000, militaryType.bomber),
-        new MilitaryPlane('B-52 Stratofortress', 1000, 20000, 80000, militaryType.bomber),
-        new MilitaryPlane('F-15', 1500, 12000, 10000, militaryType.fighter),
-        new MilitaryPlane('F-22', 1550, 13000, 11000, militaryType.fighter),
-        new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryType.transport),
+        new MilitaryPlane('B-1B Lancer', 1050, 21000, 80000, militaryTypes.bomber),
+        new MilitaryPlane('B-2 Spirit', 1030, 22000, 70000, militaryTypes.bomber),
+        new MilitaryPlane('B-52 Stratofortress', 1000, 20000, 80000, militaryTypes.bomber),
+        new MilitaryPlane('F-15', 1500, 12000, 10000, militaryTypes.fighter),
+        new MilitaryPlane('F-22', 1550, 13000, 11000, militaryTypes.fighter),
+        new MilitaryPlane('C-130 Hercules', 650, 5000, 110000, militaryTypes.transport),
         new ExperimentalPlane("Bell X-14", 277, 482, 500, experimentalTypes.highAltitude, classificationTypes.secret),
         new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, experimentalTypes.vtol, classificationTypes.topSecret)
     ];
@@ -35,7 +35,7 @@ describe('Airport application test', () => {
         let transportMilitaryPlanes = airport.getTransportMilitaryPlanes();
         let flag = false;
         for (let militaryPlane of transportMilitaryPlanes) {
-            if (militaryPlane.getMilitaryType() === militaryType.transport) {
+            if (militaryPlane.getMilitaryType() === militaryTypes.transport) {
                 flag = true;
                 break;
             }
@@ -70,7 +70,7 @@ describe('Airport application test', () => {
         let bomberMilitaryPlanes = airport.getBomberMilitaryPlanes();
         let flag = false;
         for (let militaryPlane of bomberMilitaryPlanes) {
-            if (militaryPlane.getMilitaryType() === militaryType.bomber) {
+            if (militaryPlane.getMilitaryType() === militaryTypes.bomber) {
                 flag = true;
             }
             assert.isFalse(flag);
